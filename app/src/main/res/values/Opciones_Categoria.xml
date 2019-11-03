@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="combo_categoria">
+        <item> Categoria </item>
+        <item> Enlatados </item>
+        <item> Lacteos </item>
+        <item> Carnes </item>
+        <item> Frutas </item>
+        <item> Verduras </item>
+        <item> Otros </item>
+    </string-array>
+
+</resources>

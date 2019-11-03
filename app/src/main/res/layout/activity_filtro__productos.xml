@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Filtro_Productos">
+
+
+    <TextView
+        android:id="@+id/text_Categoria"
+        android:layout_width="324dp"
+        android:layout_height="105dp"
+        android:text="Alimentos Enlatados"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.079" />
+
+    <TextView
+        android:id="@+id/text_instruccion_filtro"
+        android:layout_width="328dp"
+        android:layout_height="57dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginBottom="496dp"
+        android:text="Seleccione un producto para modificarlo o eliminarlo:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardAlimentos"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="180dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:id="@+id/Relative2">
+
+            <ImageView
+                android:id="@+id/image_Alimento"
+                android:layout_width="103dp"
+                android:layout_height="81dp"
+                app:srcCompat="@drawable/comida" />
+
+            <TextView
+                android:id="@+id/nombre_Alimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre del Alimento"
+                android:textSize="17dp"
+                android:layout_alignParentRight="true"/>
+
+            <!-- Probablemente esta seccion deba crearse en un xml extra para control de cards -->
+            <TextView
+                android:id="@+id/Fecha_Cad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de Caducidad"
+                android:layout_marginTop="30dp"
+                android:textSize="15dp"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/Cantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cantidad"
+                android:layout_marginTop="60dp"
+                android:textSize="15dp"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <!-- El codigo siguiente se supone reemplazara a las cards anteriormente propuestas : -->
+        <!--  <android.support.v7.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:id="@+id/recyclerView"  >
+
+         </android.support.v7.widget.RecyclerView>
+        -->
+    </android.support.v7.widget.CardView>
+
+
+    <Button
+        android:id="@+id/btn_ModificarP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
+        android:background="#2196F3"
+        android:text="@string/modificar_producto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/btn_EliminarP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
+        android:background="#00BCD4"
+        android:text="Eliminar Producto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/btn_Cancelar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="#F44336"
+        android:text="@string/cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

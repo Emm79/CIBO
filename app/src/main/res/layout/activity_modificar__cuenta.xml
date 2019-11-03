@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Modificar_Cuenta">
+
+    <TextView
+        android:id="@+id/text_CorreoN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="532dp"
+        android:text="Nuevo Correo:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/text_ContrasenaN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="368dp"
+        android:text="Nueva Contraseña:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/text_ContrasenaAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="284dp"
+        android:text="Contraseña Actual:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_Contrasena"
+        android:layout_width="283dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="328dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/btn_Aceptar_Cuenta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="152dp"
+        android:background="#4CAF50"
+        android:text="@string/aceptar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/btn_Eliminar_Cuenta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="596dp"
+        android:background="#F44336"
+        android:text="Eliminar Cuenta"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_Modif_Cuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="76dp"
+        android:text="Modificar Cuenta"
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_NombreN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="452dp"
+        android:text="Nuevo Nombre:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_Nombre"
+        android:layout_width="283dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="412dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_ContrasenaActual"
+        android:layout_width="283dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="244dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_Correo"
+        android:layout_width="283dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginBottom="492dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

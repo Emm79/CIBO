@@ -12,4 +12,5 @@
     <string name="escribe_la_informaci_n_para_crear_la_cuenta">Escribe la información para crear la cuenta:</string>
     <string name="nombre">Nombre</string>
     <string name="contrasena">Contraseña</string>
+    <string name="modificar_producto">Modificar producto</string>
 </resources>

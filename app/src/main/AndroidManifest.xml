@@ -3,6 +3,12 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="imagen.emm.cibo">
 
+    <uses-feature
+        android:name="android.hardware.Camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <dist:module dist:instant="true" />
 
     <application
@@ -12,9 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Filtro_Productos"></activity>
+        <activity android:name=".Tomar_Fotografia" />
+        <activity android:name=".Almacen_Actual" />
+        <activity android:name=".Modificar_Cuenta" />
+        <activity android:name=".Perfil_Usuario" />
+        <activity android:name=".ModificarProducto" />
         <activity
             android:name=".Registrarse"
-            android:label="@string/title_activity_registrarse"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -23,6 +34,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
     </application>
 
 </manifest>
