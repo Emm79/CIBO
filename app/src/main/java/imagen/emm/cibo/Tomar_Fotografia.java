@@ -14,11 +14,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.ibm.watson.developer_cloud.service.security.IamOptions;
+import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
+import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifiedImages;
+import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyOptions;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
@@ -28,6 +36,11 @@ public class Tomar_Fotografia extends Activity {
 
     private Camera mCamera;
     private CameraPreview mPreview;
+    IamOptions options = new IamOptions.Builder()
+            .apiKey("6FaIIh3r-2UNFg1vRzcMHypzz4-ZCGYC-Pk-GcCtbs8X")
+            .build();
+
+    VisualRecognition visualRecognition = new VisualRecognition("2018-03-19", options);
 
 
     @Override
@@ -76,6 +89,22 @@ public class Tomar_Fotografia extends Activity {
         return c;
     }
 
+    private void reconocerProducto(File imagen){
+        String nombre = imagen.getName();
+        try {
+            InputStream imagesStream = new FileInputStream("./" + nombre);
+            ClassifyOptions classifyOptions = new ClassifyOptions.Builder()
+                    .imagesFile(imagesStream)
+                    .imagesFilename(nombre)
+                    .threshold((float) 0.6)
+                    .classifierIds(Arrays.asList("ModeloComida_460086802"))
+                    .build();
+
+            ClassifiedImages result = this.visualRecognition.classify(classifyOptions).execute();
+            System.out.println(result);
+        } catch (Exception e){}
+    }
+
     private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
 
         @Override
@@ -83,7 +112,7 @@ public class Tomar_Fotografia extends Activity {
 
             File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
             if (pictureFile == null){
-                //Log.d(TAG, "Error creating media file, check storage permissions");
+                //Log.d(TAG, "Error creating media file, check storage permissions")
                 return;
             }
 
@@ -91,6 +120,7 @@ public class Tomar_Fotografia extends Activity {
                 FileOutputStream fos = new FileOutputStream(pictureFile);
                 fos.write(data);
                 fos.close();
+                reconocerProducto(pictureFile);
             } catch (FileNotFoundException e) {
                // Log.d(TAG, "File not found: " + e.getMessage());
             } catch (IOException e) {
