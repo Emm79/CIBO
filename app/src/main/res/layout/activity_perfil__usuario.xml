@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil_Usuario">
+    tools:context="imagen.emm.cibo.Perfil_Usuario">
 
     <Button
         android:id="@+id/btn_Toma_Foto"
@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="312dp"
         android:background="#3F51B5"
-        android:text="Tomar Fotografia"
+        android:text="@string/tomar_fotografia"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -83,7 +83,7 @@
         android:id="@+id/text_Notificaciones"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginTop="552dp"
+        android:layout_marginTop="532dp"
         android:layout_marginRight="248dp"
         android:text="Notificaciones:"
         android:textColor="#000000"

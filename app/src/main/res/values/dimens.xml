@@ -1,3 +1,14 @@
-<resources>
+<?xml version="1.0"?>
+
+    <resources>
+
     <dimen name="fab_margin">16dp</dimen>
+
 </resources>
+
+<!--
+package com.android.ex.photo;
+
+import android.app.ActionBar;
+import an
+-->

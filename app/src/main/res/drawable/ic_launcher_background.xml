@@ -1,170 +1,239 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp"
-    android:height="108dp"
-    android:viewportWidth="108"
-    android:viewportHeight="108">
-    <path
-        android:fillColor="#008577"
-        android:pathData="M0,0h108v108h-108z" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M9,0L9,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M19,0L19,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M29,0L29,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M39,0L39,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M49,0L49,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M59,0L59,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M69,0L69,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M79,0L79,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M89,0L89,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M99,0L99,108"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,9L108,9"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,19L108,19"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,29L108,29"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,39L108,39"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,49L108,49"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,59L108,59"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,69L108,69"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,79L108,79"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,89L108,89"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M0,99L108,99"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M19,29L89,29"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M19,39L89,39"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M19,49L89,49"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M19,59L89,59"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M19,69L89,69"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M19,79L89,79"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M29,19L29,89"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M39,19L39,89"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M49,19L49,89"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M59,19L59,89"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M69,19L69,89"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M79,19L79,89"
-        android:strokeWidth="0.8"
-        android:strokeColor="#33FFFFFF" />
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <vector android:viewportHeight="108" android:viewportWidth="108" android:height="108dp" android:width="108dp" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <path android:pathData="M0,0h108v108h-108z" android:fillColor="#008577"/>
+
+    <path android:pathData="M9,0L9,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M19,0L19,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M29,0L29,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M39,0L39,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M49,0L49,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M59,0L59,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M69,0L69,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M79,0L79,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M89,0L89,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M99,0L99,108" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,9L108,9" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,19L108,19" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,29L108,29" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,39L108,39" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,49L108,49" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,59L108,59" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,69L108,69" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,79L108,79" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,89L108,89" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M0,99L108,99" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M19,29L89,29" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M19,39L89,39" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M19,49L89,49" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M19,59L89,59" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M19,69L89,69" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M19,79L89,79" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M29,19L29,89" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M39,19L39,89" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M49,19L49,89" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M59,19L59,89" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M69,19L69,89" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
+    <path android:pathData="M79,19L79,89" android:fillColor="#00000000" android:strokeColor="#33FFFFFF" android:strokeWidth="0.8"/>
+
 </vector>
+<!--
+/*
+ * Copyright (C) 2014 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.android.ex.camera2.portability;
+
+import com.android.ex.camera2.portability.debug.Log;
+
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TreeSet;
+
+/**
+ * This class holds all the static information of a camera's capabilities.
+ * <p>
+ * The design of this class is thread-safe and can be passed around regardless
+ * of which thread using it.
+ * </p>
+ */
+public class CameraCapabilities {
+
+    private static Log.Tag TAG = new Log.Tag("CamCapabs");
+
+    /** Zoom ratio used for seeing sensor's full field of view. */
+    protected static final float ZOOM_RATIO_UNZOOMED = 1.0f;
+
+    /* All internal states are declared final and should be thread-safe. */
+
+    protected final ArrayList<int[]> mSupportedPreviewFpsRange = new ArrayList<int[]>();
+    protected final ArrayList<Size> mSupportedPreviewSizes = new ArrayList<Size>();
+    protected final TreeSet<Integer> mSupportedPreviewFormats = new TreeSet<Integer>();
+    protected final ArrayList<Size> mSupportedVideoSizes = new ArrayList<Size>();
+    protected final ArrayList<Size> mSupportedPhotoSizes = new ArrayList<Size>();
+    protected final TreeSet<Integer> mSupportedPhotoFormats = new TreeSet<Integer>();
+    protected final EnumSet<SceneMode> mSupportedSceneModes = EnumSet.noneOf(SceneMode.class);
+    protected final EnumSet<FlashMode> mSupportedFlashModes = EnumSet.noneOf(FlashMode.class);
+    protected final EnumSet<FocusMode> mSupportedFocusModes = EnumSet.noneOf(FocusMode.class);
+    protected final EnumSet<WhiteBalance> mSupportedWhiteBalances =
+            EnumSet.noneOf(WhiteBalance.class);
+    protected final EnumSet<Feature> mSupportedFeatures = EnumSet.noneOf(Feature.class);
+    protected Size mPreferredPreviewSizeForVideo;
+    protected int mMinExposureCompensation;
+    protected int mMaxExposureCompensation;
+    protected float mExposureCompensationStep;
+    protected int mMaxNumOfFacesSupported;
+    protected int mMaxNumOfFocusAreas;
+    protected int mMaxNumOfMeteringArea;
+    protected float mMaxZoomRatio;
+    protected float mHorizontalViewAngle;
+    protected float mVerticalViewAngle;
+    private final Stringifier mStringifier;
+
+    /**
+     * Focus modes.
+     */
+    public enum FocusMode {
+        /**
+         * Continuous auto focus mode intended for taking pictures.
+         * @see {@link android.hardware.Camera.Parameters#FOCUS_MODE_AUTO}.
+         */
+        AUTO,
+        /**
+         * Continuous auto focus mode intended for taking pictures.
+         * @see {@link android.hardware.Camera.Parameters#FOCUS_MODE_CONTINUOUS_PICTURE}.
+         */
+        CONTINUOUS_PICTURE,
+        /**
+         * Continuous auto focus mode intended for video recording.
+         * @see {@link android.hardware.Camera.Parameters#FOCUS_MODE_CONTINUOUS_VIDEO}.
+         */
+        CONTINUOUS_VIDEO,
+        /**
+         * Extended depth of field (EDOF).
+         * @see {@link android.hardware.Camera.Parameters#FOCUS_MODE_EDOF}.
+         */
+        EXTENDED_DOF,
+        /**
+         * Focus is fixed.
+         * @see {@link android.hardware.Camera.Parameters#FOCUS_MODE_FIXED}.
+         */
+        FIXED,
+        /**
+         * Focus is set at infinity.
+         * @see {@link android.hardware.Camera.Parameters#FOCUS_MODE_INFINITY}.
+         */
+        // TODO: Unsupported on API 2
+        INFINITY,
+        /**
+         * Macro (close-up) focus mode.
+         * @see {@link android.hardware.Camera.Parameters#FOCUS_MODE_MACRO}.
+         */
+        MACRO,
+    }
+
+    /**
+     * Flash modes.
+     */
+    public enum FlashMode {
+        /**
+         * No flash.
+         */
+        NO_FLASH,
+        /**
+         * Flash will be fired automatically when required.
+         * @see {@link android.hardware.Camera.Parameters#FLASH_MODE_OFF}.
+         */
+        AUTO,
+        /**
+         * Flash will not be fired.
+         * @see {@link android.hardware.Camera.Parameters#FLASH_MODE_OFF}.
+         */
+        OFF,
+        /**
+         * Flash will always be fired during snapshot.
+         * @see {@link android.hardware.Camera.Parameters#FLASH_MODE_ON}.
+         */
+        ON,
+        /**
+         * Constant emission of light during preview, auto-focus and snapshot.
+         * @see {@link android.hardware.Camera.Parameters#FLASH_MODE_TORCH}.
+         */
+        TORCH,
+        /**
+         * Flash will be fired in red-eye reduction mode.
+         * @see {@link android.hardware.Camera.Parameters#FLASH_MODE_RED_EYE}.
+         */
+        RED_EYE,
+    }
+
+    /**
+     * Scene modes.
+     */
+    public enum SceneMode {
+        /**
+         * No supported scene mode.
+         */
+        NO_SCENE_MODE,
+        /**
+         * Scene mode is off.
+         * @see {@link android.hardware.Camera.Parameters#SCENE_MODE_AUTO}.
+         */
+        AUTO,
+        /**
+         * Take photos of fast moving objects.
+         * @see {@link android.hardware.Camera.Parameters#SCENE_MODE_ACTION}.
+         */
+        ACTION,
+        /**
+         * Applications are looking for a barcode.
+         * @see {@link android.hardware.Camera.Parameters#S
+-->

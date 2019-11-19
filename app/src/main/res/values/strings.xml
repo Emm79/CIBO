@@ -1,15 +1,32 @@
-<resources>
+<?xml version="1.0"?>
+
+    <resources>
+
     <string name="app_name">CIBO</string>
+
     <string name="text_cibo">CIBO</string>
+
     <string name="iniciar">Iniciar</string>
+
     <string name="registrarse">registrarse</string>
+
     <string name="logo">logo</string>
+
     <string name="aceptar">aceptar</string>
+
     <string name="cancelar">cancelar</string>
+
     <string name="crear_cuenta">Crear Cuenta</string>
+
     <string name="correo">Correo</string>
+
     <string name="contrasena">Contraseña</string>
+
     <string name="escribe_la_informaci_n_para_crear_la_cuenta">Escribe la información para crear la cuenta:</string>
+
     <string name="nombre">Nombre</string>
+
     <string name="modificar_producto">Modificar producto</string>
+    <string name="tomar_fotografia" />
+
 </resources>

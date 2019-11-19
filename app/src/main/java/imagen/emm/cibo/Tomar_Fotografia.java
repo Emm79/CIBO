@@ -3,13 +3,10 @@ package imagen.emm.cibo;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Environment;
-//import android.support.v7.app.AppCompatActivity;
-import android.hardware.Camera;
 import android.util.Log;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -31,6 +28,8 @@ import java.util.Date;
 
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
+
+//import android.support.v7.app.AppCompatActivity;
 
 public class Tomar_Fotografia extends Activity {
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Filtro_Productos">
+    tools:context="imagen.emm.cibo.Filtro_Productos">
 
 
     <TextView
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre del Alimento"
-                android:textSize="17dp"
+                android:textSize="17sp"
                 android:layout_alignParentRight="true"/>
 
             <!-- Probablemente esta seccion deba crearse en un xml extra para control de cards -->
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:text="Fecha de Caducidad"
                 android:layout_marginTop="30dp"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:layout_alignParentRight="true"/>
 
             <TextView
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:text="Cantidad"
                 android:layout_marginTop="60dp"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:layout_alignParentRight="true"/>
 
         </RelativeLayout>

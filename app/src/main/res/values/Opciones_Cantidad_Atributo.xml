@@ -1,8 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <resources>
+
+
     <string-array name="combo_atributos">
-        <item> - </item>
-        <item> Litros </item>
-        <item> Kg </item>
-    </string-array>
+
+    <item> - </item>
+
+    <item> Litros </item>
+
+    <item> Kg </item>
+
+</string-array>
+
 </resources>
