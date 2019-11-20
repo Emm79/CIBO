@@ -25,7 +25,7 @@ public class Perfil_Usuario extends Activity {
         btn_TomaFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Toma_F = new Intent(Perfil_Usuario.this, Tomar_Fotografia.class);
+                startActivity(new Intent(getApplicationContext(), Tomar_Fotografia.class));
 
             }
         });
@@ -33,17 +33,17 @@ public class Perfil_Usuario extends Activity {
         btn_VerAlmacen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Ve_Almacen = new Intent(Perfil_Usuario.this, Almacen_Actual.class);
+                startActivity(new Intent(getApplicationContext(), Almacen_Actual.class));
 
             }
         });
 
-        btn_ModifCuenta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent Modifica_C = new Intent(Perfil_Usuario.this, Modificar_Cuenta.class);
-
-            }
-        });
+//        btn_ModifCuenta.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), Modificar_Cuenta.class));
+//
+//            }
+//        });
     }
 }
