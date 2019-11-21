@@ -119,7 +119,7 @@ public class MainActivity extends Activity {
             //    }
 
             } catch (ApiException e){
-                Toast.makeText(MainActivity.this, "Prueba", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, ""+e, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }

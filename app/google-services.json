@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:681496165146:android:ea239bcfe0fe97fba18aa3",
+        "mobilesdk_app_id": "1:681496165146:android:29ec41841e62b9e6a18aa3",
         "android_client_info": {
           "package_name": "imagen.emm.cibo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "681496165146-k5u15sl9jvgi8cov99c2e7admen82bqj.apps.googleusercontent.com",
+          "client_id": "681496165146-h6pdfp54vcj1siflk4a4l67mb003g38a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "imagen.emm.cibo",
-            "certificate_hash": "dd1b7503fb70d1f0aebcfa8febce3fc0f9a4c889"
+            "certificate_hash": "bc03b2b0470e10491c528b547c0652d9f23bc1f8"
           }
         },
         {
