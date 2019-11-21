@@ -33,7 +33,7 @@ public class Perfil_Usuario extends Activity {
         btn_VerAlmacen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Almacen_Actual.class));
+                startActivity(new Intent(getApplicationContext(), Filtro_Productos.class));
 
             }
         });

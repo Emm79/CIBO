@@ -9,17 +9,17 @@
 
 
 
-    <TextView
-        android:id="@+id/text_CIBO"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="@string/text_cibo"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111" />
+    <!--<TextView-->
+        <!--android:id="@+id/text_CIBO"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:text="@string/text_cibo"-->
+        <!--android:textSize="40sp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.111" />-->
 
 
     <ImageView
@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/comida" />
+        app:srcCompat="@drawable/LOGO" />
 
 
     <Button
@@ -68,5 +68,26 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/id_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginTop="404dp"
+        android:layout_marginRight="308dp"
+        android:text="Correo:"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/edit_Correo"
+        android:layout_width="209dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="404dp"
+        android:layout_marginRight="88dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

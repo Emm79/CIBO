@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
     FirebaseAuth mAuth;
     ProgressBar proceso;
     GoogleSignInClient mGoogleSignInClient;
-    TextView text;
+    TextView correo;
     ImageView image;
 
 
@@ -50,13 +50,13 @@ public class MainActivity extends Activity {
         btn_ingresar = (Button) findViewById(R.id.btn_Iniciar);
         proceso = (ProgressBar) findViewById(R.id.proceso_main);
         mAuth = FirebaseAuth.getInstance();
-        text = (TextView) findViewById(R.id.text_CIBO);
+        correo = (TextView) findViewById(R.id.edit_Correo);
         image = (ImageView) findViewById(R.id.image_Logo);
         btn_entrar = (Button) findViewById(R.id.btn_Entrar);
 
         // Configure Google Sign In
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions
-                .Builder()
+                .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
@@ -113,10 +113,10 @@ public class MainActivity extends Activity {
 
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                if(account != null){
+             //   if(account != null){
 
                     firebaseAuthWithGoogle(account);
-                }
+            //    }
 
             } catch (ApiException e){
                 Toast.makeText(MainActivity.this, "Prueba", Toast.LENGTH_SHORT).show();
@@ -162,25 +162,24 @@ public class MainActivity extends Activity {
     private void UpdateUI(FirebaseUser user){
         if(user != null){
 
-            String nombre_us = user.getDisplayName();
+            //String nombre_us = user.getDisplayName();
             String correo_us = user.getEmail();
             //String foto_us = String.valueOf(user.getPhotoUrl());
 
-            text.append("Informacion: \n");
-            text.append(nombre_us + "\n");
-            text.append(correo_us);
+            correo.setText(correo_us);
 
             //Picasso.get().load(foto_us).into(image);
 
             btn_ingresar.setVisibility(View.INVISIBLE);
             btn_entrar.setVisibility(View.VISIBLE);
+            correo.setVisibility(View.VISIBLE);
 
         } else {
 
-            text.setText(getString(R.string.text_cibo));
            // Picasso.get().load(R.drawable.comida).into(image);
             btn_ingresar.setVisibility(View.VISIBLE);
             btn_entrar.setVisibility(View.INVISIBLE);
+            correo.setVisibility(View.INVISIBLE);
         }
     }
 
