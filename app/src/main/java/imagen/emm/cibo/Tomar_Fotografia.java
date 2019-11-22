@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
@@ -50,8 +51,8 @@ public class Tomar_Fotografia extends Activity {
         mCamera = getCameraInstance();
 
         mPreview = new CameraPreview(this, mCamera);
-        FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
-        preview.addView(mPreview);
+        //FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+        //preview.addView(mPreview);
 
         Button captura = (Button) findViewById(R.id.btn_TomarFoto);
         captura.setOnClickListener(
@@ -100,7 +101,7 @@ public class Tomar_Fotografia extends Activity {
                     .build();
 
             ClassifiedImages result = this.visualRecognition.classify(classifyOptions).execute();
-            System.out.println(result);
+            Toast.makeText(Tomar_Fotografia.this,""+result,Toast.LENGTH_LONG).show();
         } catch (Exception e){}
     }
 

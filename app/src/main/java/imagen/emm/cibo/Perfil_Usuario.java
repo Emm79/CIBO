@@ -25,7 +25,7 @@ public class Perfil_Usuario extends Activity {
         btn_TomaFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Tomar_Fotografia.class));
+                startActivity(new Intent(getApplicationContext(), tomaFotografia.class));
 
             }
         });
