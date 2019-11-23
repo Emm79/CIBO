@@ -40,11 +40,12 @@ import java.util.Arrays;
 public class tomaFotografia extends AppCompatActivity {
 
     IamOptions options = new IamOptions.Builder()
-            .apiKey("6FaIIh3r-2UNFg1vRzcMHypzz4-ZCGYC-Pk-GcCtbs8X")
+            .apiKey("eaWVHZWXDqCGrFF8VTNyeUvPWm_JZ5HTed2OwHbwMLgF")
             .build();
 
     VisualRecognition mVisualRecognition;
     CameraHelper mCameraHelper;
+    GestorProductos gestor = new GestorProductos();
 
     ArrayList<Uri> path = new ArrayList<>();
     ArrayList<String> nombres = new ArrayList<>();
@@ -143,7 +144,7 @@ public class tomaFotografia extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         //if (requestCode == CameraHelper.REQUEST_IMAGE_CAPTURE) {
-            //final Bitmap photo = mCameraHelper.getBitmap(resultCode);
+          //  final Bitmap photo = mCameraHelper.getBitmap(resultCode);
             //final File photoFile = mCameraHelper.getFile(resultCode);
             //ImageView preview = findViewById(R.id.imageViewFotoPreview);
             //Picasso.load(photo).fit().centerCrop().into(preview);
@@ -160,54 +161,66 @@ public class tomaFotografia extends AppCompatActivity {
                         break;
                     }
             }
-            for(Uri p :path){System.out.println("URI "+p);}
-            for(Uri p : path) {
-                File photoFile = new File(getPath(p));
-                if (photoFile != null) {
-                    AsyncTask.execute(new Runnable() {
+            /*for(Uri p :path){
+                File photo = new File(getPath(p));
+                System.out.println("URI "+photo.getName());
+            }*/
+
+                    AsyncTask.execute(new Runnable(){
                         @Override
                         public void run() {
-                            InputStream imagesStream = null;
-                            try {
-                                imagesStream = new FileInputStream(photoFile);
-                                System.out.println(photoFile.getName());
-                            } catch (FileNotFoundException e) {
-                                e.printStackTrace();
-                            }
-                            try {
-                                ClassifyOptions classifyOptions = new ClassifyOptions.Builder()
-                                        .imagesFile(imagesStream)
-                                        .imagesFilename(photoFile.getName())
-                                        .threshold((float) 0.8)
-                                        .classifierIds(Arrays.asList("ModeloComida_460086802"))
-                                        //.owners(Arrays.asList("me"))
-                                        .build();
-                                ClassifiedImages result = mVisualRecognition.classify(classifyOptions).execute();
-                                Gson gson = new Gson();
-                                String json = gson.toJson(result);
-                                String name = null;
-
-                                System.out.println(result);
+                            for(Uri p:path){
+                                File photoFile = new File(getPath(p));
+                                InputStream imagesStream = null;
                                 try {
-                                    JSONObject jsonObject = new JSONObject(json);
-                                    JSONArray jsonArray = jsonObject.getJSONArray("images");
-                                    JSONObject jsonObject1 = jsonArray.getJSONObject(0);
-                                    JSONArray jsonArray1 = jsonObject1.getJSONArray("classifiers");
-                                    JSONObject jsonObject2 = jsonArray1.getJSONObject(0);
-                                    JSONArray jsonArray2 = jsonObject2.getJSONArray("classes");
-                                    JSONObject jsonObject3 = jsonArray2.getJSONObject(0);
-                                    name = jsonObject3.getString("class");
-                                } catch (JSONException e) {
+                                    imagesStream = new FileInputStream(photoFile);
+                                    System.out.println(photoFile.getName());
+                                } catch (FileNotFoundException e) {
                                     e.printStackTrace();
                                 }
-                                final String finalName = name;
-                                nombres.add(finalName);
-                                System.out.println(finalName);
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                                try {
+                                    ClassifyOptions classifyOptions = new ClassifyOptions.Builder()
+                                            .imagesFile(imagesStream)
+                                            .imagesFilename(photoFile.getName())
+                                            .threshold((float) 0.8)
+                                            .classifierIds(Arrays.asList("DefaultCustomModel_370482325"))
+                                            .build();
+                                    ClassifiedImages result = mVisualRecognition.classify(classifyOptions).execute();
+                                    Gson gson = new Gson();
+                                    String json = gson.toJson(result);
+                                    String name = null;
+
+                                    System.out.println(result);
+                                    try {
+                                        JSONObject jsonObject = new JSONObject(json);
+                                        JSONArray jsonArray = jsonObject.getJSONArray("images");
+                                        JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+                                        JSONArray jsonArray1 = jsonObject1.getJSONArray("classifiers");
+                                        JSONObject jsonObject2 = jsonArray1.getJSONObject(0);
+                                        JSONArray jsonArray2 = jsonObject2.getJSONArray("classes");
+                                        JSONObject jsonObject3 = jsonArray2.getJSONObject(0);
+                                        name = jsonObject3.getString("class");
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                    final String finalName = name;
+                                    nombres.add(name);
+                                    System.out.println(name);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                //Toast.makeText(tomaFotografia.this,"llegado hasta aca",Toast.LENGTH_LONG).show();
+
                             }
-                            //Toast.makeText(tomaFotografia.this,"llegado hasta aca",Toast.LENGTH_LONG).show();
-                    /*
+
+                        }
+                    });
+
+        //}
+        System.out.println("nombres "+nombres);
+    }
+
+    /*
                     try {
                         JSONObject jsonObject = new JSONObject(json);
                         JSONArray jsonArray = jsonObject.getJSONArray("images");
@@ -235,12 +248,4 @@ public class tomaFotografia extends AppCompatActivity {
                             });
                         }
                     });*/
-                        }
-                    });
-
-                }
-            }
-
-        //}
-    }
 }
