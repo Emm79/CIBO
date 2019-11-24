@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
         correo = (TextView) findViewById(R.id.edit_Correo);
         image = (ImageView) findViewById(R.id.image_Logo);
         btn_entrar = (Button) findViewById(R.id.btn_Entrar);
-        btn_salir = (Button) findViewById(R.id.btn_Cancelar_menu);
+        btn_salir = (Button) findViewById(R.id.btn_salir_app);
 
         // Configure Google Sign In
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions
@@ -80,14 +80,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        btn_salir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(0);
-
-            }
-        });
-
         btn_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,6 +89,12 @@ public class MainActivity extends Activity {
             }
         });
 
+        btn_salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LogOut();
+            }
+        });
 
         if(mAuth.getCurrentUser() != null){
             FirebaseUser user = mAuth.getCurrentUser();
@@ -190,7 +188,7 @@ public class MainActivity extends Activity {
            // Picasso.get().load(R.drawable.comida).into(image);
             btn_ingresar.setVisibility(View.VISIBLE);
             btn_entrar.setVisibility(View.INVISIBLE);
-            btn_salir.setVisibility(View.VISIBLE);
+            btn_salir.setVisibility(View.INVISIBLE);
             correo.setVisibility(View.INVISIBLE);
         }
     }

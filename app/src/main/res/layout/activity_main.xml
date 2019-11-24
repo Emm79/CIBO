@@ -40,16 +40,16 @@
         android:layout_below="@+id/image_Logo"/>
 
     <Button
-        android:id="@+id/btn_Cancelar_menu"
+        android:id="@+id/btn_salir_app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#992504"
         android:textColor="#FFFFFF"
         android:text="@string/Cancelar_menu"
+        android:visibility="invisible"
         android:layout_marginStart="@android:dimen/app_icon_size"
         android:layout_marginEnd="@android:dimen/app_icon_size"
-        android:layout_below="@id/btn_Entrar"
-        android:visibility="invisible"/>
+        android:layout_below="@id/btn_Entrar" />
 
     <ProgressBar
         android:id="@+id/proceso_main"

@@ -1,57 +1,82 @@
 package imagen.emm.cibo;
 
 //import android.support.v7.app.AppCompatActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 public class Perfil_Usuario extends Activity {
 
     Button btn_TomaFoto;
     Button btn_VerAlmacen;
-    Button btn_Cancelar_menu;
+    private TextView text_Nombre_Usuario;
+    Button btn_logout;
+    GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil__usuario);
 
-        btn_TomaFoto = (Button) findViewById(R.id.btn_Toma_Foto);
-        btn_VerAlmacen = (Button) findViewById(R.id.btn_Visualizar_Almacen);
-        btn_Cancelar_menu = (Button) findViewById(R.id.btn_Cancelar_menu);
+        if (GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this) == ConnectionResult.SUCCESS) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_perfil__usuario);
 
-        btn_TomaFoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), tomaFotografia.class));
+            btn_TomaFoto = (Button) findViewById(R.id.btn_Toma_Foto);
+            btn_VerAlmacen = (Button) findViewById(R.id.btn_Visualizar_Almacen);
+            text_Nombre_Usuario = ( TextView ) findViewById(R.id.text_Nombre_Usuario);
 
+            btn_logout = (Button) findViewById(R.id.btn_Cancelar_menu);
+
+            btn_logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    System.exit(0);
+                }
+            });
+
+            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+            if (acct != null) {
+                String personName = acct.getDisplayName();
+                // String personEmail = acct.getEmail();
+                // String personId = acct.getId(); si esto jala con esto podríamos meter estos datos a la base de datos.
+                text_Nombre_Usuario.setText(personName);
             }
-        });
 
-        btn_Cancelar_menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(0);
+            btn_TomaFoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), tomaFotografia.class));
 
-            }
-        });
+                }
+            });
 
-        btn_VerAlmacen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Filtro_Productos.class));
+            btn_VerAlmacen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), Filtro_Productos.class));
 
-            }
-        });
+                }
+            });
 
-//        btn_ModifCuenta.setOnClickListener(new View.OnClickListener() {
+        }
+    }
+
+//    private void signOut() {
+//        FirebaseAuth.getInstance().signOut();
+//        mGoogleSignInClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
 //            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), Modificar_Cuenta.class));
-//
+//            public void onComplete(@NonNull Task<Void> task) {
+//                System.exit(0);
 //            }
 //        });
-    }
+//    }
 }
