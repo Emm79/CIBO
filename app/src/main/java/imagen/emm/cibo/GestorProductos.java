@@ -19,20 +19,20 @@ public class GestorProductos {
     public void generarListaProductos(){
         this.productosConocidos.put("Leche",15);
         this.productosConocidos.put("arroz",180);
-        this.productosConocidos.put("atun",365);
+        this.productosConocidos.put("atún",365);
         this.productosConocidos.put("Manzana",7);
         this.productosConocidos.put("Zanahorias",8);
         this.productosConocidos.put("Uvas",6);
         this.productosConocidos.put("Tomate",7);
         this.productosConocidos.put("Platano",5);
-        this.productosConocidos.put("cafe",200);
+        this.productosConocidos.put("café",200);
         this.productosConocidos.put("sal",200);
         this.productosConocidos.put("Chicharos",7);
         this.productosConocidos.put("chile lata",180);
         this.productosConocidos.put("Pollo",15);
         this.productosConocidos.put("Carne",15);
         this.productosConocidos.put("Naranja",7);
-        this.productosConocidos.put("Limón",9);
+        this.productosConocidos.put("Limon",9);
         this.productosConocidos.put("azucar",90);
         this.productosConocidos.put("Papa",9);
         this.productosConocidos.put("pasta",90);

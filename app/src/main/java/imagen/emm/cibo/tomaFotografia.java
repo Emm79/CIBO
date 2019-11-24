@@ -40,9 +40,10 @@ import java.util.Arrays;
 public class tomaFotografia extends AppCompatActivity {
 
     IamOptions options = new IamOptions.Builder()
-            .apiKey("GUc6b114QtgLa3y3PekfNkpPtHwcMXzarpicKvSx7UPR")
-            .url("https://gateway.watsonplatform.net/visual-recognition/api")
+            .apiKey("Odq7VnI56NIxfAU-I9RejABcuoshsDSY68yL7FqFBku2")
             .build();
+
+    //IamAuthenticator options = new IamAuthenticator();
 
     VisualRecognition mVisualRecognition;
     CameraHelper mCameraHelper;
@@ -181,11 +182,13 @@ public class tomaFotografia extends AppCompatActivity {
                                 }
                                 try {
                                     mVisualRecognition = new VisualRecognition("2018-03-19",options);
+                                    mVisualRecognition.setSkipAuthentication(true);
                                     ClassifyOptions classifyOptions = new ClassifyOptions.Builder()
                                             .imagesFile(imagesStream)
                                             .imagesFilename(photoFile.getName())
                                             .threshold((float) 0.8)
-                                            .classifierIds(Arrays.asList("DefaultCustomModel_370482325"))
+                                            .classifierIds(Arrays.asList("DefaultCustomModel_443087349"))
+                                            //.owners(Arrays.asList("me"))
                                             .build();
                                     ClassifiedImages result = mVisualRecognition.classify(classifyOptions).execute();
                                     Gson gson = new Gson();
