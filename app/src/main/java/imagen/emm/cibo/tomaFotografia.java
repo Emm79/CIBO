@@ -56,7 +56,7 @@ public class tomaFotografia extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tomar__fotografia);
 
-        mVisualRecognition = new VisualRecognition("2018-03-19",options);
+        //mVisualRecognition = new VisualRecognition("2018-03-19",options);
         //mVisualRecognition.setApiKey("6FaIIh3r-2UNFg1vRzcMHypzz4-ZCGYC-Pk-GcCtbs8X");
 
         mCameraHelper = new CameraHelper(this);
@@ -180,6 +180,7 @@ public class tomaFotografia extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                                 try {
+                                    mVisualRecognition = new VisualRecognition("2018-03-19",options);
                                     ClassifyOptions classifyOptions = new ClassifyOptions.Builder()
                                             .imagesFile(imagesStream)
                                             .imagesFilename(photoFile.getName())
@@ -220,6 +221,9 @@ public class tomaFotografia extends AppCompatActivity {
         //}
         System.out.println("nombres "+nombres);
     }
+
+
+
 
     /*
                     try {

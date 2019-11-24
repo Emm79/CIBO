@@ -13,27 +13,30 @@ public class Producto {
         this.cantidad = cantidad;
     }
 
-    public void setCaducidad(String caducidad){
-        this.caducidad = caducidad;
+
+    public String getNombre(){
+        return this.nombre;
     }
 
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
-    public void setCantidad(int cantidad){
-        this.cantidad = cantidad;
-    }
-
-    public String getNombre(){
-        return this.nombre;
-    }
-
     public String getCaducidad (){
         return this.caducidad;
+    }
+
+    public void setCaducidad(String caducidad){
+        this.caducidad = caducidad;
     }
 
     public int getCantidad(){
         return this.cantidad;
     }
+
+    public void setCantidad(int cantidad){
+        this.cantidad = cantidad;
+    }
+
+
 }

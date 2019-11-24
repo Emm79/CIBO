@@ -61,4 +61,6 @@ public class GestorProductos {
         String JSON = gson.toJson(producto);
         return JSON;
     }
+
+    // Aquí va el método de subida de información a Firebase
 }
