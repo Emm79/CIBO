@@ -1,93 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="imagen.emm.cibo.MainActivity">
-
-
-
-    <!--<TextView-->
-        <!--android:id="@+id/text_CIBO"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:text="@string/text_cibo"-->
-        <!--android:textSize="40sp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:layout_constraintVertical_bias="0.111" />-->
 
 
     <ImageView
         android:id="@+id/image_Logo"
-        android:layout_width="235dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="360dp"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
         android:contentDescription="@string/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/logo" />
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logo"/>
 
 
     <Button
         android:id="@+id/btn_Iniciar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2196F3"
+        android:background="#83878D"
+        android:textColor="#FFFFFF"
         android:text="@string/iniciar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663" />
+        android:layout_margin="@android:dimen/app_icon_size"
+        android:layout_below="@id/id_correo" />
 
     <Button
         android:id="@+id/btn_Entrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#219600"
-        android:text="@string/iniciar"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
+        android:text="@string/Acceder"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_margin="@android:dimen/app_icon_size"
+        android:layout_below="@+id/image_Logo"/>
+
+    <Button
+        android:id="@+id/btn_Cancelar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#992504"
+        android:textColor="#FFFFFF"
+        android:text="@string/Cancelar_menu"
+        android:layout_marginStart="@android:dimen/app_icon_size"
+        android:layout_marginEnd="@android:dimen/app_icon_size"
+        android:layout_below="@id/btn_Entrar"
+        android:visibility="invisible"/>
 
     <ProgressBar
         android:id="@+id/proceso_main"
-        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="556dp"
-        android:layout_marginRight="180dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+        android:layout_below="@id/btn_Iniciar"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/id_correo"
         android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_marginTop="404dp"
-        android:layout_marginRight="308dp"
-        android:text="Correo:"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"/>
+        android:layout_height="wrap_content"
+        android:text="@string/correo_main"
+        android:layout_below="@id/image_Logo"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/edit_Correo"
-        android:layout_width="209dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="404dp"
-        android:layout_marginRight="88dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"/>
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_alignTop="@id/id_correo"
+        android:layout_toEndOf="@id/id_correo"
+        android:layout_marginStart="8dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

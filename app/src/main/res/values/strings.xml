@@ -26,8 +26,8 @@
 
     <string name="nombre">Nombre</string>
 
-    <string name="modificar_producto">Modificar producto</string>
-    <string name="tomar_fotografia" />
+    <string name="modificar_producto">Modificar Producto</string>
+    <string name="tomar_fotografia">Tomar Fotografia</string>
 
     <string name="leche">Leche</string>
     <string name="atun">atun</string>
@@ -49,5 +49,13 @@
     <string name="tomate">Tomate</string>
     <string name="uvas">Uvas</string>
     <string name="zanahorias">Zanahorias</string>
+    <string name="correo_main">Correo:</string>
+    <string name="Acceder">Acceder</string>
+    <string name="bienvenido_mensaje">Bienvenido</string>
+    <string name="notificaciones_text">Notificaciones:</string>
+    <string name="Instrucciones_menu">Elija que desea hacer:</string>
+    <string name="eliminar_cuenta">Eliminar Cuenta</string>
+    <string name="visualizar_almacen">Visualizar Almacen</string>
+    <string name="Cancelar_menu">Salir</string>
 
 </resources>

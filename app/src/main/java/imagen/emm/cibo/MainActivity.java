@@ -33,6 +33,7 @@ public class MainActivity extends Activity {
 
     Button btn_ingresar;
     Button btn_entrar;
+    Button btn_salir;
     static final int GOOGLE_SIGN = 123;
     FirebaseAuth mAuth;
     ProgressBar proceso;
@@ -53,6 +54,7 @@ public class MainActivity extends Activity {
         correo = (TextView) findViewById(R.id.edit_Correo);
         image = (ImageView) findViewById(R.id.image_Logo);
         btn_entrar = (Button) findViewById(R.id.btn_Entrar);
+        btn_salir = (Button) findViewById(R.id.btn_Cancelar_menu);
 
         // Configure Google Sign In
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions
@@ -74,6 +76,14 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
 
                 SignInGoogle();
+
+            }
+        });
+
+        btn_salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
 
             }
         });
@@ -172,6 +182,7 @@ public class MainActivity extends Activity {
 
             btn_ingresar.setVisibility(View.INVISIBLE);
             btn_entrar.setVisibility(View.VISIBLE);
+            btn_salir.setVisibility(View.VISIBLE);
             correo.setVisibility(View.VISIBLE);
 
         } else {
@@ -179,6 +190,7 @@ public class MainActivity extends Activity {
            // Picasso.get().load(R.drawable.comida).into(image);
             btn_ingresar.setVisibility(View.VISIBLE);
             btn_entrar.setVisibility(View.INVISIBLE);
+            btn_salir.setVisibility(View.VISIBLE);
             correo.setVisibility(View.INVISIBLE);
         }
     }

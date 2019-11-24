@@ -11,7 +11,7 @@ public class Perfil_Usuario extends Activity {
 
     Button btn_TomaFoto;
     Button btn_VerAlmacen;
-    Button btn_ModifCuenta;
+    Button btn_Cancelar_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +20,20 @@ public class Perfil_Usuario extends Activity {
 
         btn_TomaFoto = (Button) findViewById(R.id.btn_Toma_Foto);
         btn_VerAlmacen = (Button) findViewById(R.id.btn_Visualizar_Almacen);
-        btn_ModifCuenta = (Button) findViewById(R.id.btn_Modificar_Cuenta);
+        btn_Cancelar_menu = (Button) findViewById(R.id.btn_Cancelar_menu);
 
         btn_TomaFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), tomaFotografia.class));
+
+            }
+        });
+
+        btn_Cancelar_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
 
             }
         });
