@@ -62,5 +62,6 @@ public class GestorProductos {
         return JSON;
     }
 
+
     // Aquí va el método de subida de información a Firebase
 }
