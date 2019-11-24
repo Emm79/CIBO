@@ -40,7 +40,8 @@ import java.util.Arrays;
 public class tomaFotografia extends AppCompatActivity {
 
     IamOptions options = new IamOptions.Builder()
-            .apiKey("eaWVHZWXDqCGrFF8VTNyeUvPWm_JZ5HTed2OwHbwMLgF")
+            .apiKey("GUc6b114QtgLa3y3PekfNkpPtHwcMXzarpicKvSx7UPR")
+            .url("https://gateway.watsonplatform.net/visual-recognition/api")
             .build();
 
     VisualRecognition mVisualRecognition;
