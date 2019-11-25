@@ -32,7 +32,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAlimentos"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="48dp"

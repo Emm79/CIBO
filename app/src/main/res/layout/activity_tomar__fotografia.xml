@@ -20,7 +20,7 @@
     <ImageView
         android:id="@+id/imageViewFotoPreview"
         android:layout_width="300sp"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/previo"
         android:layout_marginTop="30dp"
@@ -33,7 +33,6 @@
         android:background="@color/colorPrimaryDark"
         android:textColor="#FFFFFF"
         android:onClick="pickFromGallery"
-        android:layout_marginTop="50dp"
         android:layout_marginLeft="@android:dimen/app_icon_size"
         android:layout_marginRight="@android:dimen/app_icon_size"
         android:text="@string/Elegir_Fotos"
@@ -49,7 +48,7 @@
         android:onClick="verNombres"
         android:layout_below="@id/btn_TomarFoto"
         android:layout_alignStart="@id/btn_TomarFoto"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
            />
 
     <Button
