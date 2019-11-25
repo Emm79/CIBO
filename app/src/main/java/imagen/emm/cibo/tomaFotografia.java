@@ -55,6 +55,8 @@ public class tomaFotografia extends AppCompatActivity {
     GestorProductos gestor = new GestorProductos();
     ArrayList<Uri> path = new ArrayList<>();
     ArrayList<String> nombres = new ArrayList<>();
+    ArrayList<String> nombresPrueba = new ArrayList<>();
+
     DatabaseReference databaseAlmacen;
 
     @Override
@@ -140,17 +142,22 @@ public class tomaFotografia extends AppCompatActivity {
 
     public void verNombres(View view){
         String cad = "";
-        for(String n : nombres){cad+=n;}
         Toast.makeText(tomaFotografia.this,cad,Toast.LENGTH_LONG).show();
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        nombresPrueba.add("limón");
+        nombresPrueba.add("naranja");
+
         if (acct != null) {
             String personId = acct.getId();
-            databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
-            String nombreAlimento = "manzana";
-            String Caducidad = "5 días";
-            String id = databaseAlmacen.push().getKey();
-            AlmacenFirebase almacenFirebase = new AlmacenFirebase(id,nombreAlimento,Caducidad);
-            databaseAlmacen.child(id).setValue(almacenFirebase);
+            for(String n : nombresPrueba){cad+=n;//aquí estoy usando nombres prueba para hacerlo iterativo, luego regresar a nombres.
+                databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
+                String nombreAlimento = n;
+                String Caducidad = "6 días";
+                String id = databaseAlmacen.push().getKey();
+                AlmacenFirebase almacenFirebase = new AlmacenFirebase(id,nombreAlimento,Caducidad);
+                databaseAlmacen.child(id).setValue(almacenFirebase);
+            }
+
             Toast.makeText(this,"Guardado en almacen.",Toast.LENGTH_LONG).show();
         }
     }
