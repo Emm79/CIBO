@@ -12,10 +12,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
@@ -48,19 +53,29 @@ public class tomaFotografia extends AppCompatActivity {
     VisualRecognition mVisualRecognition;
     CameraHelper mCameraHelper;
     GestorProductos gestor = new GestorProductos();
-
     ArrayList<Uri> path = new ArrayList<>();
     ArrayList<String> nombres = new ArrayList<>();
+    DatabaseReference databaseAlmacen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tomar__fotografia);
+
+
 
         //mVisualRecognition = new VisualRecognition("2018-03-19",options);
         //mVisualRecognition.setApiKey("6FaIIh3r-2UNFg1vRzcMHypzz4-ZCGYC-Pk-GcCtbs8X");
 
-        mCameraHelper = new CameraHelper(this);
+       /* mCameraHelper = new CameraHelper(this);
+        btn_salir_fotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
+            }
+        });*/
     }
 
     public void tomarFotografia(View view){
@@ -100,6 +115,7 @@ public class tomaFotografia extends AppCompatActivity {
     }*/
 
 
+
     public void pickFromGallery(View view){
         FishBun.with(tomaFotografia.this)
                 .setImageAdapter(new GlideAdapter())
@@ -126,6 +142,17 @@ public class tomaFotografia extends AppCompatActivity {
         String cad = "";
         for(String n : nombres){cad+=n;}
         Toast.makeText(tomaFotografia.this,cad,Toast.LENGTH_LONG).show();
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct != null) {
+            String personId = acct.getId();
+            databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
+            String nombreAlimento = "manzana";
+            String Caducidad = "5 días";
+            String id = databaseAlmacen.push().getKey();
+            AlmacenFirebase almacenFirebase = new AlmacenFirebase(id,nombreAlimento,Caducidad);
+            databaseAlmacen.child(id).setValue(almacenFirebase);
+            Toast.makeText(this,"Guardado en almacen.",Toast.LENGTH_LONG).show();
+        }
     }
 
     public String getPath(Uri uri)
@@ -139,6 +166,8 @@ public class tomaFotografia extends AppCompatActivity {
         cursor.close();
         return s;
     }
+
+
 
 
     @Override
