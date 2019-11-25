@@ -24,7 +24,7 @@ public class Filtro_Productos extends Activity {
         btn_ModifProd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Modificar_P = new Intent(Filtro_Productos.this, ModificarProducto.class);
+                startActivity(new Intent(Filtro_Productos.this, ModificarProducto.class));
 
             }
         });
@@ -32,8 +32,7 @@ public class Filtro_Productos extends Activity {
         btn_Cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Regresar_Almacen = new Intent(Filtro_Productos.this, Almacen_Actual.class);
-
+                System.exit(0);
             }
         });
     }

@@ -27,7 +27,7 @@
     <string name="nombre">Nombre</string>
 
     <string name="modificar_producto">Modificar Producto</string>
-    <string name="tomar_fotografia">Tomar Fotografia</string>
+    <string name="tomar_fotografia">Elegir fotos</string>
 
     <string name="leche">Leche</string>
     <string name="atun">atun</string>
@@ -57,5 +57,14 @@
     <string name="eliminar_cuenta">Eliminar Cuenta</string>
     <string name="visualizar_almacen">Visualizar Almacen</string>
     <string name="Cancelar_menu">Salir</string>
+    <string name="Elegir_Fotos">Elegir fotos a analizar</string>
+    <string name="Instrucciones_elegir_fotos">Seleccione las fotografias que desea analizar:</string>
+    <string name="instrucciones_almacen">Seleccione un producto y realice una acción:</string>
+    <string name="nombre_del_alimento">Nombre del Alimento</string>
+    <string name="fecha_de_caducidad">Fecha de Caducidad</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="btn_eliminar_producto">Eliminar Producto</string>
+    <string name="alimentos_en_almac_n">Alimentos en almacén</string>
+    <string name="salir_almacen">Salir</string>
 
 </resources>

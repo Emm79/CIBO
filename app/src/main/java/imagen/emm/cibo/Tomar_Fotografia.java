@@ -9,7 +9,6 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
@@ -36,6 +35,7 @@ public class Tomar_Fotografia extends Activity {
 
     private Camera mCamera;
     private CameraPreview mPreview;
+    Button btn_salir;
     IamOptions options = new IamOptions.Builder()
             .apiKey("6FaIIh3r-2UNFg1vRzcMHypzz4-ZCGYC-Pk-GcCtbs8X")
             .build();
@@ -49,6 +49,7 @@ public class Tomar_Fotografia extends Activity {
         setContentView(R.layout.activity_tomar__fotografia);
 
         mCamera = getCameraInstance();
+        btn_salir = (Button) findViewById(R.id.btn_salir_fotos);
 
         mPreview = new CameraPreview(this, mCamera);
         //FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
@@ -63,6 +64,13 @@ public class Tomar_Fotografia extends Activity {
                     }
                 }
         );
+
+        btn_salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
+            }
+        });
 
     }
 
