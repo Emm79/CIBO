@@ -148,6 +148,7 @@ public class tomaFotografia extends AppCompatActivity {
         nombresPrueba.add("naranja");
 
         if (acct != null) {
+            //comentario
             String personId = acct.getId();
             for(String n : nombresPrueba){cad+=n;//aquí estoy usando nombres prueba para hacerlo iterativo, luego regresar a nombres.
                 databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
