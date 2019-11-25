@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "681496165146-hgrl21okg8flq8pv21aie6un51iv9856.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "imagen.emm.cibo",
+            "certificate_hash": "6412be5b05aa16c44fd2b7e0b6e3d8f662335a1a"
+          }
+        },
+        {
+          "client_id": "681496165146-11vt4aa2tnrqb8gp81qm39dvkmb5ge9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "imagen.emm.cibo",
+            "certificate_hash": "dd1b7503fb70d1f0aebcfa8febce3fc0f9a4c889"
+          }
+        },
+        {
           "client_id": "681496165146-h6pdfp54vcj1siflk4a4l67mb003g38a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

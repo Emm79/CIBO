@@ -14,6 +14,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Perfil_Usuario extends Activity {
 
@@ -22,9 +24,11 @@ public class Perfil_Usuario extends Activity {
     private TextView text_Nombre_Usuario;
     Button btn_logout;
     GoogleSignInClient mGoogleSignInClient;
+    DatabaseReference databaseUsuarios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        databaseUsuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
 
         if (GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this) == ConnectionResult.SUCCESS) {
             super.onCreate(savedInstanceState);
@@ -46,8 +50,14 @@ public class Perfil_Usuario extends Activity {
             GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
             if (acct != null) {
                 String personName = acct.getDisplayName();
-                // String personEmail = acct.getEmail();
-                // String personId = acct.getId(); si esto jala con esto podríamos meter estos datos a la base de datos.
+                String personEmail = acct.getEmail();
+                String personId = acct.getId();
+               // String id = databaseUsuarios.push().getKey();
+
+                UsuarioFirebase usuarioFirebase = new UsuarioFirebase(personId,personName,personEmail);
+                databaseUsuarios.child(personId).setValue(usuarioFirebase);
+
+                //si esto jala con esto podríamos meter estos datos a la base de datos.
                 text_Nombre_Usuario.setText(personName);
             }
 
