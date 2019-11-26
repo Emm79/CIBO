@@ -82,6 +82,7 @@ public class Perfil_Usuario extends Activity {
 
                             productoNombre = producto.getNombre();
                             productoCad = producto.getCaducidad();
+
                         }
                     }
 

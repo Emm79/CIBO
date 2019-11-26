@@ -1,5 +1,11 @@
 package imagen.emm.cibo;
 
+import android.app.Activity;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
@@ -9,7 +15,10 @@ import java.util.Date;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-public class GestorProductos {
+public class GestorProductos extends Activity {
+    String personId;
+    String idP;
+    DatabaseReference databaseAlmacen;
     private Dictionary<String,Integer> productosConocidos = new Hashtable<String,Integer>();
 
     public GestorProductos(){}
@@ -43,12 +52,24 @@ public class GestorProductos {
         String fechaCaducidad;
         ArrayList<Producto> prodCompletos = new ArrayList<>();
         Producto p;
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct != null) {
+            //comentario
+            personId = acct.getId();
+
+                databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
+                idP = databaseAlmacen.push().getKey();
+        }
+
+
+
         for (String producto : productos){
             int aumento = this.productosConocidos.get(producto);
             calendario.add(Calendar.DAY_OF_YEAR,aumento);
             Date hoy = calendario.getTime();
             fechaCaducidad = formatter.format(hoy);
-            p = new Producto(producto,fechaCaducidad);
+            p = new Producto(idP,producto,fechaCaducidad);
             prodCompletos.add(p);
         }
         return prodCompletos;
