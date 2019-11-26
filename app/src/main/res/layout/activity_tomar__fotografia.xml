@@ -45,7 +45,7 @@
         android:background="#83878D"
         android:textColor="#FFFFFF"
         android:text="@string/aceptar"
-        android:onClick="verNombres"
+        android:onClick="subirProd"
         android:layout_below="@id/btn_TomarFoto"
         android:layout_alignStart="@id/btn_TomarFoto"
         android:layout_marginTop="20dp"

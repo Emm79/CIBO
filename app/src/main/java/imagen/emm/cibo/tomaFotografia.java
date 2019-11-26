@@ -45,7 +45,7 @@ import java.util.Arrays;
 public class tomaFotografia extends AppCompatActivity {
 
     IamOptions options = new IamOptions.Builder()
-            .apiKey("Odq7VnI56NIxfAU-I9RejABcuoshsDSY68yL7FqFBku2")
+            .apiKey("ab950d87-b426-489b-b37c-074ed0ed4ad7")
             .build();
 
     //IamAuthenticator options = new IamAuthenticator();
@@ -55,9 +55,9 @@ public class tomaFotografia extends AppCompatActivity {
     GestorProductos gestor = new GestorProductos();
     ArrayList<Uri> path = new ArrayList<>();
     ArrayList<String> nombres = new ArrayList<>();
-    ArrayList<String> nombresPrueba = new ArrayList<>();
 
     DatabaseReference databaseAlmacen;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,9 @@ public class tomaFotografia extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tomar__fotografia);
 
+
+
+        mVisualRecognition = new VisualRecognition("2018-03-19",options);
 
 
         //mVisualRecognition = new VisualRecognition("2018-03-19",options);
@@ -140,20 +143,23 @@ public class tomaFotografia extends AppCompatActivity {
                 .startAlbum();
     }
 
-    public void verNombres(View view){
+    public void subirProd(View view){
+        GestorProductos gp = new GestorProductos();
+        ArrayList<Producto> productos = new ArrayList<>();
         String cad = "";
         Toast.makeText(tomaFotografia.this,cad,Toast.LENGTH_LONG).show();
+        productos = gp.calcularCaducidades(nombres);
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        nombresPrueba.add("limón");
-        nombresPrueba.add("naranja");
 
         if (acct != null) {
             //comentario
             String personId = acct.getId();
-            for(String n : nombresPrueba){cad+=n;//aquí estoy usando nombres prueba para hacerlo iterativo, luego regresar a nombres.
+
+            for(String n : nombres){
+                //cad+=n;//aquí estoy usando nombres prueba para hacerlo iterativo, luego regresar a nombres.
                 databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
                 String nombreAlimento = n;
-                String Caducidad = "6 días";
+                String Caducidad = "10 dias";//este se obtiene con los métodos del gestor
                 String id = databaseAlmacen.push().getKey();
                 AlmacenFirebase almacenFirebase = new AlmacenFirebase(id,nombreAlimento,Caducidad);
                 databaseAlmacen.child(id).setValue(almacenFirebase);
@@ -196,35 +202,22 @@ public class tomaFotografia extends AppCompatActivity {
                         System.out.println("WENAS ");
                         path = data.getParcelableArrayListExtra(Define.INTENT_PATH);
                         System.out.println("JEJE ");
-                        // you can get an image path(ArrayList<Uri>) on 0.6.2 and later
-                        break;
-                    }
-            }
-            /*for(Uri p :path){
-                File photo = new File(getPath(p));
-                System.out.println("URI "+photo.getName());
-            }*/
 
-                    AsyncTask.execute(new Runnable(){
-                        @Override
-                        public void run() {
-                            for(Uri p:path){
-                                File photoFile = new File(getPath(p));
+
+                        AsyncTask.execute(new Runnable(){
+                            @Override
+                            public void run() {
+                                //for(Uri p:path){
+                                File photoFile = new File(getPath(path.get(0)));
                                 InputStream imagesStream = null;
                                 try {
                                     imagesStream = new FileInputStream(photoFile);
-                                    System.out.println(photoFile.getName());
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
-                                }
-                                try {
-                                    mVisualRecognition = new VisualRecognition("2018-03-19",options);
-                                    mVisualRecognition.setSkipAuthentication(true);
+                                    //System.out.println(photoFile.getName());
                                     ClassifyOptions classifyOptions = new ClassifyOptions.Builder()
                                             .imagesFile(imagesStream)
                                             .imagesFilename(photoFile.getName())
                                             .threshold((float) 0.8)
-                                            .classifierIds(Arrays.asList("DefaultCustomModel_443087349"))
+                                            .classifierIds(Arrays.asList("DefaultCustomModel_1962795465"))
                                             //.owners(Arrays.asList("me"))
                                             .build();
                                     ClassifiedImages result = mVisualRecognition.classify(classifyOptions).execute();
@@ -247,19 +240,31 @@ public class tomaFotografia extends AppCompatActivity {
                                     }
                                     final String finalName = name;
                                     nombres.add(name);
-                                    System.out.println(name);
-                                } catch (Exception e) {
+
+                                } catch (FileNotFoundException e) {
                                     e.printStackTrace();
                                 }
-                                //Toast.makeText(tomaFotografia.this,"llegado hasta aca",Toast.LENGTH_LONG).show();
-
+                                //System.out.println(name);
                             }
+                            //Toast.makeText(tomaFotografia.this,"llegado hasta aca",Toast.LENGTH_LONG).show();
 
-                        }
-                    });
+                            //}
+
+
+                        });
+                        // you can get an image path(ArrayList<Uri>) on 0.6.2 and later
+                        break;
+                    }
+            }
+            /*for(Uri p :path){
+                File photo = new File(getPath(p));
+                System.out.println("URI "+photo.getName());
+            }*/
+
+
 
         //}
-        System.out.println("nombres "+nombres);
+       // System.out.println("nombres "+nombres);
     }
 
 
