@@ -1,7 +1,5 @@
 package imagen.emm.cibo;
 
-import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -57,7 +55,7 @@ public class Almacen {
                 if(dias <= 7){
                     String contenido = "Faltan " + dias + " para que " + producto.getNombre() + " caduque. ¡Úsalo cuanto antes!";
                     String estado = "Pendiente";
-                    Notificacion notificacion = new Notificacion(contenido,fechaCaducidad,estado);
+                    Notificacion notificacion = new Notificacion(contenido);
                     this.notificaciones.add(notificacion);
                 }
             } catch (Exception e) {

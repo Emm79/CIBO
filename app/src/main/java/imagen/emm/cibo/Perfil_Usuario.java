@@ -10,10 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -35,9 +36,12 @@ public class Perfil_Usuario extends Activity {
     Button btn_logout;
     DatabaseReference databaseUsuarios;
     DatabaseReference databaseAlmacen;
+    String personId;
     String productoNombre;
     String productoCad;
-
+    private NotificacionAdapter notificacionAdapter;
+    private RecyclerView recyclerView;
+    private ArrayList<Notificacion> notificacionesList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,11 @@ public class Perfil_Usuario extends Activity {
             btn_TomaFoto = (Button) findViewById(R.id.btn_Toma_Foto);
             btn_VerAlmacen = (Button) findViewById(R.id.btn_Visualizar_Almacen);
             text_Nombre_Usuario = ( TextView ) findViewById(R.id.text_Nombre_Usuario);
+            recyclerView = (RecyclerView) findViewById(R.id.recycler_view_Nots);
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
             btn_logout = (Button) findViewById(R.id.btn_Cancelar_menu);
 
@@ -64,7 +73,7 @@ public class Perfil_Usuario extends Activity {
             if (acct != null) {
                 String personName = acct.getDisplayName();
                 String personEmail = acct.getEmail();
-                String personId = acct.getId();
+                 personId = acct.getId();
                // String id = databaseUsuarios.push().getKey();
 
                 UsuarioFirebase usuarioFirebase = new UsuarioFirebase(personId,personName,personEmail);
@@ -75,25 +84,28 @@ public class Perfil_Usuario extends Activity {
 
 
 
-                databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
-                databaseAlmacen.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot almacenSnapshot : dataSnapshot.getChildren()){
-                            String productoNombre = almacenSnapshot.getValue().toString();
-                            String productoCad = almacenSnapshot.getValue().toString();
-                            Toast.makeText(Perfil_Usuario.this, productoNombre , Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-
+//                databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
+//
+//                databaseAlmacen.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                        for(DataSnapshot almacenSnapshot : dataSnapshot.getChildren()){
+//                            Producto producto = almacenSnapshot.getValue(Producto.class);
+//
+//                            productoNombre = producto.getNombre();
+//                            productoCad = producto.getCaducidad();
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                    }
+//                });
+//
+//
+//                Toast.makeText(Perfil_Usuario.this, "nombre: "+productoNombre + ", cad: " + productoCad, Toast.LENGTH_SHORT).show();
 
                 //si esto jala con esto podríamos meter estos datos a la base de datos.
 //            text_producto.setText(personName);
@@ -116,7 +128,42 @@ public class Perfil_Usuario extends Activity {
             });
 
         }
+
+        ObtenerDatosFirebase();
     }
+
+
+    public void ObtenerDatosFirebase(){
+
+        databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
+
+        String idP = databaseAlmacen.push().getKey();
+//        Toast.makeText(Perfil_Usuario.this, "usuario: "+personId+", IP prod: "+idP, Toast.LENGTH_SHORT).show();
+        databaseAlmacen.child(idP).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+
+                    notificacionesList.clear();
+
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+
+                        String notificacion = ds.child("caducidad").getValue().toString();
+                        notificacionesList.add(new Notificacion(notificacion));
+                    }
+
+                    notificacionAdapter = new NotificacionAdapter(notificacionesList,R.layout.activity_perfil__usuario);
+                    recyclerView.setAdapter(notificacionAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 
     // Método para enviar una notificación general que pida al usuario revisar su almacén
     private void enviarNotificacion(){
