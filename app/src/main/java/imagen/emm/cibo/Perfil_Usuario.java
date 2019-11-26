@@ -3,19 +3,27 @@ package imagen.emm.cibo;
 //import android.support.v7.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Perfil_Usuario extends Activity {
 
@@ -23,8 +31,10 @@ public class Perfil_Usuario extends Activity {
     Button btn_VerAlmacen;
     private TextView text_Nombre_Usuario;
     Button btn_logout;
-    GoogleSignInClient mGoogleSignInClient;
     DatabaseReference databaseUsuarios;
+    DatabaseReference databaseAlmacen;
+    String productoNombre;
+    String productoCad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +69,33 @@ public class Perfil_Usuario extends Activity {
 
                 //si esto jala con esto podríamos meter estos datos a la base de datos.
                 text_Nombre_Usuario.setText(personName);
+
+
+
+                databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
+
+                databaseAlmacen.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot almacenSnapshot : dataSnapshot.getChildren()){
+                            Producto producto = almacenSnapshot.getValue(Producto.class);
+
+                            productoNombre = producto.getNombre();
+                            productoCad = producto.getCaducidad();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+                Toast.makeText(Perfil_Usuario.this, "nombre: "+productoNombre + ", cad: " + productoCad, Toast.LENGTH_SHORT).show();
+
+                //si esto jala con esto podríamos meter estos datos a la base de datos.
+//            text_producto.setText(personName);
             }
 
             btn_TomaFoto.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +114,30 @@ public class Perfil_Usuario extends Activity {
                 }
             });
 
+        }
+    }
+
+    // Método para enviar una notificación general que pida al usuario revisar su almacén
+    private void enviarNotificacion(){
+        Almacen almacen = new Almacen();
+        int tam = almacen.getNotificaciones().size();
+        if (tam > 0){
+            NotificationCompat.Builder mBuilder;
+            NotificationManager mNotifyMgr =(NotificationManager) getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+
+            int icono = R.mipmap.ic_launcher;
+            Intent i=new Intent(Perfil_Usuario.this, Perfil_Usuario.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(Perfil_Usuario.this, 0, i, 0);
+
+            mBuilder =new NotificationCompat.Builder(getApplicationContext())
+                    .setContentIntent(pendingIntent)
+                    .setSmallIcon(icono)
+                    .setContentTitle("¡Tienes artículos por caducar!")
+                    .setContentText("Hemos encontrado " + tam + " productos cercanos a su vencimiento")
+                    .setVibrate(new long[] {100, 250, 100, 500})
+                    .setAutoCancel(true);
+
+            mNotifyMgr.notify(1, mBuilder.build());
         }
     }
 

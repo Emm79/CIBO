@@ -1,6 +1,7 @@
 package imagen.emm.cibo;
 
 //import android.support.v7.app.AppCompatActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +13,10 @@ public class Filtro_Productos extends Activity {
     Button btn_ModifProd;
     Button btn_Cancelar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtro__productos);
 
@@ -24,7 +27,7 @@ public class Filtro_Productos extends Activity {
         btn_ModifProd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Filtro_Productos.this, ModificarProducto.class));
+                startActivity(new Intent(getApplicationContext(), ModificarProducto.class));
 
             }
         });
@@ -35,5 +38,8 @@ public class Filtro_Productos extends Activity {
                 System.exit(0);
             }
         });
+
+
+
     }
 }

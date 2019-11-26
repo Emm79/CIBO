@@ -23,7 +23,7 @@ public class ModificarProducto extends Activity {
         btn_Cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Cancelar_Cambios_P = new Intent(ModificarProducto.this, Filtro_Productos.class);
+                startActivity(new Intent(getApplicationContext(), Filtro_Productos.class));
 
             }
         });
@@ -31,7 +31,7 @@ public class ModificarProducto extends Activity {
         btn_Aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Aceptar_Cambios_P = new Intent(ModificarProducto.this, Filtro_Productos.class);
+                startActivity(new Intent(getApplicationContext(), Filtro_Productos.class));
 
             }
         });

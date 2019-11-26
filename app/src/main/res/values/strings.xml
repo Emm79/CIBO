@@ -66,5 +66,6 @@
     <string name="btn_eliminar_producto">Eliminar Producto</string>
     <string name="alimentos_en_almac_n">Alimentos en almacén</string>
     <string name="salir_almacen">Salir</string>
+    <string name="salir_fotos">Salir</string>
 
 </resources>

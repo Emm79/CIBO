@@ -2,14 +2,12 @@ package imagen.emm.cibo;
 
 import com.google.gson.Gson;
 
-import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Date;
-import java.text.SimpleDateFormat;
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 public class GestorProductos {
     private Dictionary<String,Integer> productosConocidos = new Hashtable<String,Integer>();
@@ -50,7 +48,7 @@ public class GestorProductos {
             calendario.add(Calendar.DAY_OF_YEAR,aumento);
             Date hoy = calendario.getTime();
             fechaCaducidad = formatter.format(hoy);
-            p = new Producto(producto,fechaCaducidad,1);
+            p = new Producto(producto,fechaCaducidad);
             prodCompletos.add(p);
         }
         return prodCompletos;
