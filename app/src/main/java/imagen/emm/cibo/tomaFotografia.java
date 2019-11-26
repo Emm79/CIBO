@@ -42,17 +42,21 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import okhttp3.Authenticator;
+
 public class tomaFotografia extends AppCompatActivity {
 
+
     IamOptions options = new IamOptions.Builder()
-            .apiKey("ab950d87-b426-489b-b37c-074ed0ed4ad7")
+            .apiKey("quBiLu8E3DdzdbaJTzax99gwXAqDTPfOEe1Tk6bQLVJL")
+            //.accessToken("eyJraWQiOiIyMDE5MDcyNCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJpYW0tU2VydmljZUlkLTY2MzUwMDBhLTFlNzUtNGVkNS1iODE0LTNlNmU4Y2RiYjczMCIsImlkIjoiaWFtLVNlcnZpY2VJZC02NjM1MDAwYS0xZTc1LTRlZDUtYjgxNC0zZTZlOGNkYmI3MzAiLCJyZWFsbWlkIjoiaWFtIiwiaWRlbnRpZmllciI6IlNlcnZpY2VJZC02NjM1MDAwYS0xZTc1LTRlZDUtYjgxNC0zZTZlOGNkYmI3MzAiLCJzdWIiOiJTZXJ2aWNlSWQtNjYzNTAwMGEtMWU3NS00ZWQ1LWI4MTQtM2U2ZThjZGJiNzMwIiwic3ViX3R5cGUiOiJTZXJ2aWNlSWQiLCJ1bmlxdWVfaW5zdGFuY2VfY3JucyI6WyJjcm46djE6Ymx1ZW1peDpwdWJsaWM6d2F0c29uLXZpc2lvbi1jb21iaW5lZDp1cy1zb3V0aDphL2VjMmIwZGZlMGVlMTRkYzNhZmE0NGZkYzhlODgzNjFmOjBlODRmM2RkLTNmNDItNDQ0ZC1iYTAwLWUxZjg2OWQ4ODRmZDo6Il0sImFjY291bnQiOnsidmFsaWQiOnRydWUsImJzcyI6ImVjMmIwZGZlMGVlMTRkYzNhZmE0NGZkYzhlODgzNjFmIn0sImlhdCI6MTU3NDc0Nzg0NiwiZXhwIjoxNTc0NzUxNDQ2LCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ.D5znSOtp2tRb5UxjOUSKdgXP2KIFqPkZ3KlMDqa45ajkfDG5BwW6H7dKnaq0Uj2OkA8gq872O6hbQDrCF0J8WWnnfu6hnZP3q2CnbC_4aK5Iqz3M2kCO3rraQyrWF5upL4uaW1BZvCkZFOBfPLfX62PAmDrbG3yI1hsupwqBj-bDiS-5uEt50-F0lmXSB8qXCG9iZMsXjWHOsmQ_mWrjzsrpXiB0km4cOUL7VwXSPj8lEOhd1sY5xK9OEN3aO0d5jnHo-_gE8Vn_rPH8aAc-2Kc03XfhOPmJlB7nehJNGOSTl8FDPNNw_M8tONPjMDWE_PXJzoBH3gxqLeG4JrQh2g")
             .build();
 
     //IamAuthenticator options = new IamAuthenticator();
 
     VisualRecognition mVisualRecognition;
     CameraHelper mCameraHelper;
-    GestorProductos gestor = new GestorProductos();
+    //GestorProductos gestor = new GestorProductos();
     ArrayList<Uri> path = new ArrayList<>();
     ArrayList<String> nombres = new ArrayList<>();
 
@@ -144,22 +148,24 @@ public class tomaFotografia extends AppCompatActivity {
     }
 
     public void subirProd(View view){
-        GestorProductos gp = new GestorProductos();
         ArrayList<Producto> productos = new ArrayList<>();
         String cad = "";
-        Toast.makeText(tomaFotografia.this,cad,Toast.LENGTH_LONG).show();
-        productos = gp.calcularCaducidades(nombres);
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
 
         if (acct != null) {
+
+            GestorProductos gp = new GestorProductos(acct);
+            gp.generarListaProductos();
+            productos = gp.calcularCaducidades(nombres);
             //comentario
             String personId = acct.getId();
 
-            for(String n : nombres){
+            for(Producto p : productos){
                 //cad+=n;//aquí estoy usando nombres prueba para hacerlo iterativo, luego regresar a nombres.
                 databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
-                String nombreAlimento = n;
-                String Caducidad = "10 dias";//este se obtiene con los métodos del gestor
+                String nombreAlimento = p.getNombre();
+                String Caducidad = p.getCaducidad();//este se obtiene con los métodos del gestor
                 String id = databaseAlmacen.push().getKey();
                 AlmacenFirebase almacenFirebase = new AlmacenFirebase(id,nombreAlimento,Caducidad);
                 databaseAlmacen.child(id).setValue(almacenFirebase);
@@ -217,7 +223,7 @@ public class tomaFotografia extends AppCompatActivity {
                                             .imagesFile(imagesStream)
                                             .imagesFilename(photoFile.getName())
                                             .threshold((float) 0.8)
-                                            .classifierIds(Arrays.asList("DefaultCustomModel_1962795465"))
+                                            .classifierIds(Arrays.asList("DefaultCustomModel_828036712"))
                                             //.owners(Arrays.asList("me"))
                                             .build();
                                     ClassifiedImages result = mVisualRecognition.classify(classifyOptions).execute();

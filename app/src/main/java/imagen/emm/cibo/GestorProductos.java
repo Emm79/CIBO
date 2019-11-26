@@ -19,9 +19,10 @@ public class GestorProductos extends Activity {
     String personId;
     String idP;
     DatabaseReference databaseAlmacen;
+    GoogleSignInAccount acct;
     private Dictionary<String,Integer> productosConocidos = new Hashtable<String,Integer>();
 
-    public GestorProductos(){}
+    public GestorProductos(GoogleSignInAccount acct){this.acct = acct;}
 
     public void generarListaProductos(){
         this.productosConocidos.put("Leche",15);
@@ -53,8 +54,8 @@ public class GestorProductos extends Activity {
         ArrayList<Producto> prodCompletos = new ArrayList<>();
         Producto p;
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if (acct != null) {
+        //GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (this.acct != null) {
             //comentario
             personId = acct.getId();
 
