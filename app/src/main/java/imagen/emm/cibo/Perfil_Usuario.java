@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Perfil_Usuario extends Activity {
 
     Button btn_TomaFoto;
@@ -35,6 +37,7 @@ public class Perfil_Usuario extends Activity {
     DatabaseReference databaseAlmacen;
     String productoNombre;
     String productoCad;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +76,13 @@ public class Perfil_Usuario extends Activity {
 
 
                 databaseAlmacen = FirebaseDatabase.getInstance().getReference("Almacen").child(personId);
-
                 databaseAlmacen.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot almacenSnapshot : dataSnapshot.getChildren()){
-                            Producto producto = almacenSnapshot.getValue(Producto.class);
-
-                            productoNombre = producto.getNombre();
-                            productoCad = producto.getCaducidad();
+                            String productoNombre = almacenSnapshot.getValue().toString();
+                            String productoCad = almacenSnapshot.getValue().toString();
+                            Toast.makeText(Perfil_Usuario.this, productoNombre , Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -93,7 +94,6 @@ public class Perfil_Usuario extends Activity {
                 });
 
 
-                Toast.makeText(Perfil_Usuario.this, "nombre: "+productoNombre + ", cad: " + productoCad, Toast.LENGTH_SHORT).show();
 
                 //si esto jala con esto podríamos meter estos datos a la base de datos.
 //            text_producto.setText(personName);

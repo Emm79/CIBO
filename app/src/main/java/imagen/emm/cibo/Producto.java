@@ -5,8 +5,9 @@ public class Producto {
     private String caducidad;
     private String nombre;
 
-    public Producto(){}
+    public Producto(){
 
+    }
     public Producto(String id, String nombre, String caducidad){
         this.id = id;
         this.nombre = nombre;
