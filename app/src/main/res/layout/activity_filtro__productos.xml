@@ -44,43 +44,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:id="@+id/Relative2">
+            android:id="@+id/Relative2"/>
 
-            <ImageView
-                android:id="@+id/image_Alimento"
-                android:layout_width="100dp"
-                android:layout_height="81dp"
-                android:src="@drawable/comida"
-                android:layout_marginLeft="0dp"/>
-
-            <TextView
-                android:id="@+id/nombre_Alimento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nombre_del_alimento"
-                android:textSize="14sp"
-                android:layout_alignParentEnd="true"/>
-
-            <!-- Probablemente esta seccion deba crearse en un xml extra para control de cards -->
-            <TextView
-                android:id="@+id/Fecha_Cad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fecha_de_caducidad"
-                android:layout_marginTop="30dp"
-                android:textSize="12sp"
-                android:layout_alignParentEnd="true"/>
-
-            <TextView
-                android:id="@+id/Cantidad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cantidad"
-                android:layout_marginTop="60dp"
-                android:textSize="12sp"
-                android:layout_alignParentEnd="true"/>
-
-        </RelativeLayout>
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <!-- El codigo siguiente se supone reemplazara a las cards anteriormente propuestas : -->
         <!--  <android.support.v7.widget.RecyclerView
