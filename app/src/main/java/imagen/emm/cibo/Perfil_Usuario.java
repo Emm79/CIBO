@@ -80,8 +80,7 @@ public class Perfil_Usuario extends Activity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot almacenSnapshot : dataSnapshot.getChildren()){
-                            String productoNombre = almacenSnapshot.getValue().toString();
-                            String productoCad = almacenSnapshot.getValue().toString();
+                            String productoNombre = almacenSnapshot.child("nombreAlimento").getValue().toString();
                             Toast.makeText(Perfil_Usuario.this, productoNombre , Toast.LENGTH_SHORT).show();
 
                         }
