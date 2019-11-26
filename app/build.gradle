@@ -42,6 +42,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.android.support:support-v13:28.0.0'
+    implementation 'com.ibm.watson:visual-recognition:8.0.1'
 
     //implementation 'com.square.picasso:picasso:2.7128'
 

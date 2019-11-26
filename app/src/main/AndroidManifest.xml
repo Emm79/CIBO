@@ -23,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".tomaFotografia"></activity>
+        <activity android:name=".GestorProductos"/>
         <activity android:name=".Filtro_Productos" />
         <activity android:name=".Tomar_Fotografia" />
         <activity android:name=".Almacen_Actual" />
