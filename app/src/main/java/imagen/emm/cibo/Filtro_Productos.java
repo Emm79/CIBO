@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -73,9 +72,6 @@ public class Filtro_Productos extends Activity {
                         String productoCad = almacenSnapshot.child("caducidad").getValue().toString();
                         names.add(productoNombre);
                         caducidades.add(productoCad);
-                        Toast.makeText(Filtro_Productos.this, productoNombre , Toast.LENGTH_LONG).show();
-                      //  Toast.makeText(Filtro_Productos.this, productoCad , Toast.LENGTH_LONG).show();
-
                     }
                     ArrayAdapter namesAdapter = new ArrayAdapter(Filtro_Productos.this,android.R.layout.simple_list_item_1,names);
                     listView.setAdapter(namesAdapter);

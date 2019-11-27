@@ -84,13 +84,13 @@
         android:layout_below="@id/btn_Cancelar_menu"
         android:layout_marginTop="50dp"
         android:layout_marginStart="30dp"/>
+
     
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_Nots"
+    <ListView
+        android:id="@+id/ListaNotificaciones"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignStart="@id/text_Notificaciones"
+        android:layout_height="wrap_content"
         android:layout_below="@id/text_Notificaciones"
-        ></androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginTop="10dp"></ListView>
 
 </RelativeLayout>

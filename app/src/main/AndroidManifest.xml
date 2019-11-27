@@ -26,8 +26,6 @@
         <activity android:name=".GestorProductos"/>
         <activity android:name=".Filtro_Productos" />
         <activity android:name=".Tomar_Fotografia" />
-        <activity android:name=".Almacen_Actual" />
-        <activity android:name=".Modificar_Cuenta" />
         <activity android:name=".Perfil_Usuario" />
         <activity android:name=".ModificarProducto" />
         <activity android:name=".MainActivity">

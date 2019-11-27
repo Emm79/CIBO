@@ -17,7 +17,7 @@ public class ModificarProducto extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_producto);
 
-        btn_Cancelar = (Button) findViewById(R.id.btn_Cancelar);
+        btn_Cancelar = (Button) findViewById(R.id.btn_cancelar_Prod);
         btn_Aceptar = (Button) findViewById(R.id.btn_Aceptar);
 
         btn_Cancelar.setOnClickListener(new View.OnClickListener() {
