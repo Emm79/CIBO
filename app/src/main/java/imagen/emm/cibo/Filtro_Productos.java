@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -29,7 +31,11 @@ public class Filtro_Productos extends Activity {
     DatabaseReference databaseAlmacen;
     private ListView listView;
     private ArrayList<String> names;
+    DatabaseReference databaseAlimento;
+
     private ArrayList<String> caducidades;
+    Button btn_EliminarP;
+
 
 
     @Override
@@ -39,7 +45,7 @@ public class Filtro_Productos extends Activity {
         listView = (ListView) findViewById(R.id.listview);
         btn_ModifProd = (Button) findViewById(R.id.btn_ModificarP);
         btn_Cancelar = (Button) findViewById(R.id.btn_Cancelar);
-
+        btn_EliminarP = (Button) findViewById(R.id.btn_EliminarP);
 
         btn_ModifProd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +80,34 @@ public class Filtro_Productos extends Activity {
                         caducidades.add(productoCad);
                     }
                     ArrayAdapter namesAdapter = new ArrayAdapter(Filtro_Productos.this,android.R.layout.simple_list_item_1,names);
-                    listView.setAdapter(namesAdapter);
+                  listView.setAdapter(namesAdapter);
+
+
+
+                    btn_EliminarP.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            listView.setOnItemClickListener(new OnItemClickListener() {
+                                public void onItemClick(AdapterView<?> myAdapter, View myView, int pos, long mylng) {
+                                    String selectedFromList =(listView.getItemAtPosition(pos).toString());
+                                    names.remove(selectedFromList);
+                                    ArrayAdapter namesAdapter = new ArrayAdapter(Filtro_Productos.this,android.R.layout.simple_list_item_1,names);
+                                    listView.setAdapter(namesAdapter);
+                                    for(DataSnapshot almacenSnapshot : dataSnapshot.getChildren()){
+                                        String productoNombre = almacenSnapshot.child("nombreAlimento").getValue().toString();
+                                        if(productoNombre.equals(selectedFromList)){
+                                            String productoID = almacenSnapshot.child("alimentoId").getValue().toString();
+                                            databaseAlimento = FirebaseDatabase.getInstance().getReference("Almacen").child(personId).child(productoID);
+                                            databaseAlimento.removeValue();
+                                        }
+
+                                    }
+
+                                }
+                            });
+
+                        }
+                    });
 
                 }
 
